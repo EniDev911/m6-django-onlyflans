@@ -1,3 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content %}<h2>Índice</h2>{% endblock %}
+{% block title %}Índice{% endblock %}
+{% block content %}
+<h2>Índice</h2>
+<div class="container my-4">
+  <div class="row">
+  {% for flan in flans  %}
+    <div class="col-6 col-md-3">
+      <div class="card shadow-sm mb-3 border">
+        <img src="{{ flan.image_url }}" alt="{{ flan.name }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ flan.name }}</h5>
+          <p class="card-text">{{ flan.description }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
